@@ -1,0 +1,22 @@
+# dependencies
+node_modules
+
+# production build
+dist
+build
+Dockerfile
+docker-compose.yml
+
+# local env files
+.env*
+
+
+# misc
+.DS_Store
+*.local
+
+# editor directories and files
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
