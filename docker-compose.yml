@@ -1,0 +1,43 @@
+services:
+    db:
+      image: postgres:17-alpine
+      container_name: postgres-db
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+        POSTGRES_DB: docker_db
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+
+    backend:
+      build: ./backend
+      container_name: node-backend
+      ports:
+        - "5000:5000"
+      volumes:
+        - ./backend:/app
+        - /app/node_modules
+      environment:
+        - NODE_ENV=development
+        - DATABASE_URL=postgres://postgres:password@db:5432/docker_db
+      depends_on:
+        - db
+      
+    frontend:
+      build: ./frontend
+      container_name: react-frontend
+      ports:
+        - "5173:5173"
+      volumes:
+        - ./frontend:/app
+        - /app/node_modules
+      environment:
+        - CHOKIDAR_USEPOLLING=true
+      depends_on:
+        - backend
+
+
+volumes:
+  pgdata:
