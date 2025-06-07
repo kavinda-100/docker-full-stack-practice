@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Messages } from "./components/Messages";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+    <main>
+      <h1>
+        This App is test application that use Docker to run full MERN Stack with
+        TypeScript.
+        <br />
+        The API is running on{" "}
+        <a
+          href="http://localhost:5000"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          http://localhost:5000
         </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+        .<br />
+      </h1>
 
-export default App
+      <p>
+        Below show two endpoints that connected to the API, one is home route
+        and the other is health check route.
+        <br />
+      </p>
+      <h1>Home Route</h1>
+      <Messages url="http://localhost:5000" />
+      <h1>Health Check Route</h1>
+      <Messages url="http://localhost:5000/health" />
+    </main>
+  );
+};
+
+export default App;
