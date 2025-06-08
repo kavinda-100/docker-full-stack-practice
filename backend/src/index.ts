@@ -31,7 +31,7 @@ app.get('/hello', (req: Request, res: Response) => {
 // hi route
 app.get('/hi', (req: Request, res: Response) => {
   res.status(200).json({
-    "message": 'Hi there! 👋'
+    "message": 'Hi there! 👋 updated'
   })
 });
 
