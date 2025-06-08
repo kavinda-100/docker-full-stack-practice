@@ -24,14 +24,14 @@ app.get('/health', (req: Request, res: Response) => {
 // hello world route
 app.get('/hello', (req: Request, res: Response) => {
   res.status(200).json({
-    "message": 'Hello World! 🎉'
+    "message": 'Hello World! updated 🎉 '
   })
 });
 
 // hi route
 app.get('/hi', (req: Request, res: Response) => {
   res.status(200).json({
-    "message": 'Hi there! 👋 updated'
+    "message": 'Hi there! updated 👋 with fixed '
   })
 });
 

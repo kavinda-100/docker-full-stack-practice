@@ -29,6 +29,8 @@ const App = () => {
       <Messages url="http://localhost:5000/health" />
       <h1>Hello Route</h1>
       <Messages url="http://localhost:5000/hello" />
+      <h1>Hi Route</h1>
+      <Messages url="http://localhost:5000/hi" />
     </main>
   );
 };
